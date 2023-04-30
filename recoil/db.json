@@ -1,0 +1,52 @@
+{
+  "products": [
+    {
+      "title": "mandi",
+      "id": 1
+    },
+    {
+      "title": "makan",
+      "id": 2
+    },
+    {
+      "title": "tidur",
+      "id": 3
+    },
+    {
+      "title": "nonton",
+      "id": 4
+    },
+    {
+      "title": "belajar",
+      "id": 5
+    },
+    {
+      "title": "kerja",
+      "id": 6
+    },
+    {
+      "title": "olahraga updated",
+      "id": 7
+    },
+    {
+      "title": "lari pagi jam 06.00",
+      "id": 8
+    },
+    {
+      "title": "lari malam",
+      "id": 10
+    },
+    {
+      "title": "main basket di lapangan mandala",
+      "id": 11
+    },
+    {
+      "title": "berenang",
+      "id": 12
+    },
+    {
+      "title": "senam pagi",
+      "id": 13
+    }
+  ]
+}
