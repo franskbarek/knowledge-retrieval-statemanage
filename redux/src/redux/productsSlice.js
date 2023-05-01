@@ -34,11 +34,12 @@ export const handleDelete = createAsyncThunk("products/handleDelete", async (id)
   }
 });
 
-// Update product
-
 export const updateProduct = createAsyncThunk("products/updateProduct", async ({ id, title }) => {
   try {
-    const res = await axios.patch(`http://localhost:3000/products/${id}`, { id: id, title: title });
+    const res = await axios.patch(`http://localhost:3000/products/${id}`, {
+      id: id,
+      title: title,
+    });
     return res.data;
   } catch (err) {
     console.error(err.message);
@@ -82,8 +83,10 @@ const productSlice = createSlice({
     });
   },
 });
+
 // Action creators are generated for each case reducer function
-// export const { increment, decrement, incrementByAmount } = productSlice.actions;
+
+export const { increment, decrement, incrementByAmount } = productSlice.actions;
 
 export const productSelectors = productEntity.getSelectors((state) => state.product);
 

@@ -5,12 +5,8 @@
       "id": 1
     },
     {
-      "title": "makan",
+      "title": "makan updated",
       "id": 2
-    },
-    {
-      "title": "tidur",
-      "id": 3
     },
     {
       "title": "nonton",
@@ -27,6 +23,14 @@
     {
       "title": "olahraga updated",
       "id": 7
+    },
+    {
+      "title": "Tambah lagi",
+      "id": 8
+    },
+    {
+      "title": "tambah baru",
+      "id": 9
     }
   ]
 }
