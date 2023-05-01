@@ -1,9 +1,12 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
-import { ProductsContext } from "../context/ProductsContext";
+import { getProducts, productSelectors, updateProduct } from "../redux/productsSlice";
 
 export default function EditProduct() {
-  const { updateProduct, products } = useContext(ProductsContext);
+  const products = useSelector(productSelectors.selectAll);
+
+  const dispatch = useDispatch();
 
   const location = useLocation();
 
@@ -20,7 +23,8 @@ export default function EditProduct() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await updateProduct(id, titleComponent);
+    await dispatch(updateProduct({ id: id, title: titleComponent }));
+    dispatch(getProducts());
     navigate("/");
   };
 

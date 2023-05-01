@@ -1,11 +1,10 @@
-import { useContext, useState } from "react";
-
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-import { ProductsContext } from "../context/ProductsContext";
+import { addProduct } from "../redux/productsSlice";
+import { useDispatch } from "react-redux";
 
 export default function AddProduct() {
-  const { addProduct } = useContext(ProductsContext);
+  const dispatch = useDispatch();
 
   const [title, setTitle] = useState("");
 
@@ -13,7 +12,7 @@ export default function AddProduct() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await addProduct(title);
+    await dispatch(addProduct(title));
     navigate("/");
   };
 

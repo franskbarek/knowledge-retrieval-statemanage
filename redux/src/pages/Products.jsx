@@ -1,9 +1,21 @@
-import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { ProductsContext } from "../context/ProductsContext";
+import { useDispatch, useSelector } from "react-redux";
+import { getProducts, handleDelete, productSelectors } from "../redux/productsSlice";
+import { useEffect } from "react";
 
 const Products = function ProductsComponent() {
-  const { handleDelete, products } = useContext(ProductsContext);
+  const products = useSelector(productSelectors.selectAll);
+
+  const dispatch = useDispatch();
+
+  const onDelete = async (id) => {
+    await dispatch(handleDelete(id));
+    dispatch(getProducts());
+  };
+
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [dispatch]);
 
   return (
     <div className="m-10">
@@ -21,7 +33,7 @@ const Products = function ProductsComponent() {
             <button className="m-2 p-1 bg-orange-500">
               <Link to={`/edit/${product.id}`}>Edit</Link>
             </button>
-            <button className="m-2 p-1 bg-red-600" onClick={() => handleDelete(product.id)}>
+            <button className="m-2 p-1 bg-red-600" onClick={() => onDelete(product.id)}>
               Delete
             </button>
           </div>
