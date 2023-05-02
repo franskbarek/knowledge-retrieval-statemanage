@@ -1,36 +1,42 @@
 {
   "products": [
     {
-      "title": "mandi",
+      "title": "Botol",
       "id": 1
     },
     {
-      "title": "makan updated",
+      "title": "Gelas",
       "id": 2
     },
     {
-      "title": "nonton",
+      "title": "Buku",
+      "id": 3
+    },
+    {
+      "title": "Spidol",
       "id": 4
     },
     {
-      "title": "belajar",
+      "title": "Whiteboard 2m",
       "id": 5
     },
     {
-      "title": "kerja",
+      "title": "Pensil updated",
       "id": 6
+    }
+  ],
+  "users": [
+    {
+      "name": "Frans",
+      "email": "frans@gmail.com",
+      "password": "anak223",
+      "id": 1
     },
     {
-      "title": "olahraga updated",
-      "id": 7
-    },
-    {
-      "title": "Tambah lagi",
-      "id": 8
-    },
-    {
-      "title": "tambah baru",
-      "id": 9
+      "name": "lala",
+      "email": "lala@gmail.com",
+      "password": "anak223",
+      "id": 2
     }
   ]
 }

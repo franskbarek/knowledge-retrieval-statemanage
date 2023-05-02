@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { addProduct } from "../redux/productsSlice";
 import { useDispatch } from "react-redux";
@@ -9,6 +9,12 @@ export default function AddProduct() {
   const [title, setTitle] = useState("");
 
   const navigate = useNavigate();
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  const [user, setUser] = useState(currentUser);
+
+  useEffect(() => {
+    if (!user) return navigate("/login");
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();

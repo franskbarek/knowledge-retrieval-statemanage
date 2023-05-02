@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import { getProducts, productSelectors, updateProduct } from "../redux/productsSlice";
@@ -13,6 +13,13 @@ export default function EditProduct() {
   const id = location.pathname.split("").splice(6).join("").split(" ")[0];
 
   const navigate = useNavigate();
+
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  const [user, setUser] = useState(currentUser);
+
+  useEffect(() => {
+    if (!user) return navigate("/login");
+  }, []);
 
   const initialTitle = products
     .filter((product) => id.includes(product.id))

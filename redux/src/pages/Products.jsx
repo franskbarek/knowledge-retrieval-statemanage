@@ -1,10 +1,15 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts, handleDelete, productSelectors } from "../redux/productsSlice";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const Products = function ProductsComponent() {
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  const [user, setUser] = useState(currentUser);
+
   const products = useSelector(productSelectors.selectAll);
+
+  const navigate = useNavigate();
 
   const dispatch = useDispatch();
 
@@ -15,13 +20,22 @@ const Products = function ProductsComponent() {
 
   useEffect(() => {
     dispatch(getProducts());
+    if (!user) return navigate("/login");
   }, [dispatch]);
+
+  const handleLogout = () => {
+    localStorage.removeItem("currentUser");
+    navigate("/login");
+  };
 
   return (
     <div className="m-10">
       <h1 className="underline">List barang:</h1>
       <button className="m-2 p-1 bg-green-500">
         <Link to="/add">Add new</Link>
+      </button>
+      <button className="m-2 p-1 bg-green-500" onClick={handleLogout}>
+        Logout
       </button>
 
       {products.map((product, idx) => (
